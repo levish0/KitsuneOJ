@@ -1,7 +1,8 @@
-use crate::service::error::errors::Errors;
+
 use argon2::password_hash::SaltString;
 use argon2::password_hash::rand_core::OsRng;
 use argon2::{Algorithm, Argon2, Params, PasswordHash, PasswordHasher, PasswordVerifier, Version};
+use crate::errors::errors::Errors;
 
 pub fn hash_password(password: &str) -> Result<String, Errors> {
     // OWASP - Password Storage Cheat Sheet
