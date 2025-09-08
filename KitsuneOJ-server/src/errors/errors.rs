@@ -1,13 +1,5 @@
 use crate::config::db_config::DbConfig;
 
-use axum::Json;
-use axum::extract::Request;
-use axum::http::StatusCode;
-use axum::response::{IntoResponse, Response};
-use sea_orm::{DbErr, TransactionError};
-use serde::Serialize;
-use tracing::{debug, error, warn};
-use utoipa::ToSchema;
 use crate::errors::protocol::document::{DOCUMENT_ALREADY_EXISTS, DOCUMENT_NOT_FOUND};
 use crate::errors::protocol::email::EMAIL_ALREADY_VERIFIED;
 use crate::errors::protocol::file::{FILE_NOT_FOUND, FILE_READ_ERROR, FILE_UPLOAD_ERROR};
@@ -21,6 +13,14 @@ use crate::errors::protocol::session::{SESSION_EXPIRED, SESSION_INVALID_USER_ID,
 use crate::errors::protocol::system::{SYS_DATABASE_ERROR, SYS_HASHING_ERROR, SYS_INTERNAL_ERROR, SYS_NOT_FOUND, SYS_TOKEN_CREATION_ERROR, SYS_TRANSACTION_ERROR};
 use crate::errors::protocol::token::{TOKEN_EMAIL_MISMATCH, TOKEN_EXPIRED_RESET, TOKEN_EXPIRED_VERIFICATION, TOKEN_INVALID_RESET, TOKEN_INVALID_VERIFICATION};
 use crate::errors::protocol::user::{USER_EMAIL_ALREADY_EXISTS, USER_HANDLE_ALREADY_EXISTS, USER_INVALID_PASSWORD, USER_INVALID_SESSION, USER_INVALID_TOKEN, USER_NOT_FOUND, USER_NOT_VERIFIED, USER_NO_REFRESH_TOKEN, USER_PASSWORD_NOT_SET, USER_TOKEN_EXPIRED, USER_UNAUTHORIZED};
+use axum::extract::Request;
+use axum::http::StatusCode;
+use axum::response::{IntoResponse, Response};
+use axum::Json;
+use sea_orm::{DbErr, TransactionError};
+use serde::Serialize;
+use tracing::{debug, error, warn};
+use utoipa::ToSchema;
 // 이 모듈은 애플리케이션의 오류 처리 시스템을 구현합니다.
 // 주요 기능:
 // 1. 다양한 오류 유형 정의 (사용자, 문서, 권한, 시스템 등)

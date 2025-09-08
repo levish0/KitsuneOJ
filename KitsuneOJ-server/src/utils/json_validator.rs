@@ -1,9 +1,9 @@
-use axum::Json;
+use crate::errors::errors::Errors;
 use axum::extract::rejection::JsonRejection;
 use axum::extract::{FromRequest, Request};
+use axum::Json;
 use serde::de::DeserializeOwned;
 use validator::Validate;
-use crate::errors::errors::Errors;
 
 #[derive(Debug, Clone, Copy, Default)]
 pub struct ValidatedJson<T>(pub T);
