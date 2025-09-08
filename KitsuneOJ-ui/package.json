@@ -23,6 +23,7 @@
 		"@tailwindcss/vite": "^4.0.0",
 		"bits-ui": "^2.9.6",
 		"clsx": "^2.1.1",
+		"ky": "^1.10.0",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
