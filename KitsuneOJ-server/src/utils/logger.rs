@@ -2,7 +2,7 @@ use std::sync::LazyLock;
 use tracing::info;
 use tracing_subscriber::layer::SubscriberExt;
 use tracing_subscriber::util::SubscriberInitExt;
-use tracing_subscriber::{fmt, Layer};
+use tracing_subscriber::{Layer, fmt};
 
 static TRACING_GUARD: LazyLock<tracing_appender::non_blocking::WorkerGuard> = LazyLock::new(|| {
     // logs 디렉토리가 없으면 생성

@@ -1,4 +1,3 @@
-use std::net::SocketAddr;
 use crate::api::v0::routes::routes::api_routes;
 use crate::config::db_config::DbConfig;
 use crate::connection::database::establish_connection;
@@ -8,18 +7,19 @@ use crate::middleware::cors::cors_layer;
 use crate::state::AppState;
 use crate::utils::logger::init_tracing;
 use axum::Router;
+use std::net::SocketAddr;
 use tower_cookies::CookieManagerLayer;
 use tracing::error;
 
-mod utils;
-mod errors;
-mod config;
-mod middleware;
-mod dto;
-mod state;
-mod service;
-mod connection;
 mod api;
+mod config;
+mod connection;
+mod dto;
+mod errors;
+mod middleware;
+mod service;
+mod state;
+mod utils;
 
 pub async fn run_server() -> anyhow::Result<()> {
     let conn = establish_connection().await;
@@ -58,7 +58,7 @@ pub async fn run_server() -> anyhow::Result<()> {
         listener,
         app.into_make_service_with_connect_info::<SocketAddr>(),
     )
-        .await?;
+    .await?;
     Ok(())
 }
 

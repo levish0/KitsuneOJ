@@ -1,2 +1,2 @@
-mod protocol;
 pub mod errors;
+mod protocol;

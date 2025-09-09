@@ -136,9 +136,9 @@ static CONFIG: LazyLock<DbConfig> = LazyLock::new(|| {
         auth_email_verification_token_expire_time: env::var(
             "AUTH_EMAIL_VERIFICATION_TOKEN_EXPIRE_TIME",
         )
-            .ok()
-            .and_then(|v| v.parse().ok())
-            .unwrap_or(1), // 기본값 1시간
+        .ok()
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(1), // 기본값 1시간
         auth_password_reset_token_expire_time: env::var("AUTH_PASSWORD_RESET_TOKEN_EXPIRE_TIME")
             .ok()
             .and_then(|v| v.parse().ok())

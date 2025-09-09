@@ -1,6 +1,6 @@
 use super::health_check;
 use crate::state::AppState;
-use axum::{routing::get, Router};
+use axum::{Router, routing::get};
 
 pub fn health_routes() -> Router<AppState> {
     Router::new()

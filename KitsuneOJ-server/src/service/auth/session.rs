@@ -1,8 +1,8 @@
 use crate::config::db_config::DbConfig;
 use crate::dto::auth::internal::session::Session;
 use crate::errors::errors::Errors;
-use redis::aio::ConnectionManager as RedisClient;
 use redis::AsyncCommands;
+use redis::aio::ConnectionManager as RedisClient;
 use serde_json;
 
 pub struct SessionService;
