@@ -30,7 +30,6 @@ pub struct DbConfig {
     // pub r2_bucket_name: String,
     // pub r2_access_key_id: String,
     // pub r2_secret_access_key: String,
-
     pub db_user: String,
     pub db_password: String,
     pub db_host: String,
