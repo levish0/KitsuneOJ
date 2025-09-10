@@ -30,6 +30,7 @@ pub struct DbConfig {
     // pub r2_bucket_name: String,
     // pub r2_access_key_id: String,
     // pub r2_secret_access_key: String,
+
     pub db_user: String,
     pub db_password: String,
     pub db_host: String,
@@ -43,13 +44,6 @@ pub struct DbConfig {
     pub redis_port: String,
     pub redis_ttl: u64,
 
-    // OpenSearch
-    // pub opensearch_host: String,
-    // pub opensearch_port: String,
-    // pub opensearch_scheme: String,
-    // pub opensearch_username: String,
-    // pub opensearch_password: String,
-    // pub opensearch_verify_certs: bool,
     pub server_host: String,
     pub server_port: String,
 
@@ -190,20 +184,6 @@ static CONFIG: LazyLock<DbConfig> = LazyLock::new(|| {
             .and_then(|v| v.parse().ok())
             .unwrap_or(3600),
 
-        // Opensearch
-        /*
-         opensearch_host: env::var("OPENSEARCH_HOST").expect("OPENSEARCH_HOST must be set"),
-         opensearch_port: env::var("OPENSEARCH_PORT").expect("OPENSEARCH_HOST must be set"),
-         opensearch_scheme: env::var("OPENSEARCH_SCHEME")
-           .ok()
-            .unwrap_or("http".to_string()),
-         opensearch_username: env::var("OPENSEARCH_USERNAME").expect("OPENSEARCH_USERNAME must be set"),
-         opensearch_password:env::var("OPENSEARCH_PASSWORD").expect("OPENSEARCH_PASSWORD must be set"),
-        opensearch_verify_certs: env::var("OPENSEARCH_VERIFY_CERTS")
-            .unwrap_or_else(|_| "false".to_string())
-            .parse()
-            .unwrap_or(false),
-        */
         server_host: env::var("HOST").expect("HOST must be set in .env file"),
         server_port: env::var("PORT").expect("PORT must be set in .env file"),
 
